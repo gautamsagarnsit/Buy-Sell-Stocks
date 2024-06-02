@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Portfolio
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+    <tr>
+    <th scope="col"> Symbol</th>
+    <th scope="col"> Cost per Share</th>
+    <th scope="col"> Shares</th>
+    <th scope="col">Date & Time</th>
+    <th scope="col">Transaction Type</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for entry in history %}
+        <tr>
+            <td> {{entry["symbol"]}}</td>
+            <td> ${{entry["price"]}}</td>
+            <td> {{entry["share"]}}</td>
+            <td> {{entry["day"]}}</td>
+            <td> {{entry["type"]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
